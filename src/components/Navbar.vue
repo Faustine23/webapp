@@ -42,15 +42,9 @@ export default {
         },
         {
           id: 4,
-          label: 'Admin',
-          page: '/UserAdministrator',
+          label: 'Graphs',
+          page: '/GraphManager',
         },
-        {
-          id: 5,
-          label: 'Manager',
-          page: '/UserManager',
-        },
-
       ],
     };
   },

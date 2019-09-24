@@ -12,6 +12,7 @@ import UserManager from '../components/UserManager';
 import UserAdministrator from '../components/UserAdministrator';
 import TeamsManager from '../components/TeamsManager';
 import UsersProfileManager from '../components/UsersProfileManager';
+import GraphManager from '../components/GraphManager';
 
 Vue.use(Router);
 
@@ -76,6 +77,11 @@ export default new Router({
       path: '/usersprofilemanager',
       name: 'UsersProfileManager',
       component: UsersProfileManager,
+    },
+    {
+      path: '/graphmanager',
+      name: 'GraphManager',
+      component: GraphManager,
     },
   ],
 });
