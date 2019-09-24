@@ -6,6 +6,8 @@ import EditProfile from '../components/EditProfile';
 import Logout from '../components/Logout';
 import UserEmployee from '../components/UserEmployee';
 import Clocker from '../components/Clocker';
+import WorkingTime from '../components/WorkingTime';
+import Calendar from '../components/Calendar';
 
 Vue.use(Router);
 
@@ -40,6 +42,16 @@ export default new Router({
       path: '/clocker',
       name: 'Clocker',
       component: Clocker,
+    },
+    {
+      path: '/workingtime',
+      name: 'WorkingTime',
+      component: WorkingTime,
+    },
+    {
+      path: '/calendar',
+      name: 'Calendar',
+      component: Calendar,
     },
   ],
 });

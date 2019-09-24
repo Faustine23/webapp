@@ -30,6 +30,8 @@ const store = new Vuex.Store({
     clockIn: false,
     clockOut: false,
 
+    see: false,
+
   },
   mutations: {
     changeClockIn(state) {
@@ -49,6 +51,9 @@ const store = new Vuex.Store({
         state.disClockOut = true;
         state.disClockIn = false;
       }
+    },
+    seeAppointement(state) {
+      state.see = true;
     },
   },
 });

@@ -32,8 +32,8 @@ export default {
         },
         {
           id: 2,
-          label: 'Workingtimes',
-          page: '/Workingtimes',
+          label: 'Workingtime',
+          page: '/Workingtime',
         },
         {
           id: 3,
@@ -42,16 +42,11 @@ export default {
         },
         {
           id: 4,
-          label: 'Graph',
-          page: '/ChartManager',
-        },
-        {
-          id: 5,
           label: 'Manager',
           page: '/UserManager',
         },
         {
-          id: 6,
+          id: 5,
           label: 'Admin',
           page: '/UserAdministrator',
         },
