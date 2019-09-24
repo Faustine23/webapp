@@ -42,14 +42,15 @@ export default {
         },
         {
           id: 4,
-          label: 'Manager',
-          page: '/UserManager',
-        },
-        {
-          id: 5,
           label: 'Admin',
           page: '/UserAdministrator',
         },
+        {
+          id: 5,
+          label: 'Manager',
+          page: '/UserManager',
+        },
+
       ],
     };
   },
