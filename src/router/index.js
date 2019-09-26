@@ -1,18 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from '../components/Login';
-import Signup from '../components/Signup';
-import EditProfile from '../components/EditProfile';
-import Logout from '../components/Logout';
-import UserEmployee from '../components/UserEmployee';
-import Clocker from '../components/Clocker';
-import WorkingTime from '../components/WorkingTime';
+import Users from '../components/Users';
+import WorkingTimes from '../components/WorkingTimes';
 import Calendar from '../components/Calendar';
-import UserManager from '../components/UserManager';
-import UserAdministrator from '../components/UserAdministrator';
-import TeamsManager from '../components/TeamsManager';
-import UsersProfileManager from '../components/UsersProfileManager';
-import GraphManager from '../components/GraphManager';
+import Signup from '../components/Signup';
+import Login from '../components/Login';
+import Clocker from '../components/Clocker';
+import Logout from '../components/Logout';
+import Settings from '../components/Settings';
+import ChartManager from '../components/ChartManager';
+import EditProfile from '../components/EditProfile';
+import Home from '../components/Home';
+
 
 Vue.use(Router);
 
@@ -20,13 +19,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: Login,
+      redirect: '/login',
     },
     {
-      path: '/logout',
-      name: 'Logout',
-      component: Logout,
+      path: '/login',
+      name: 'Login',
+      component: Login,
     },
     {
       path: '/signup',
@@ -34,34 +32,24 @@ export default new Router({
       component: Signup,
     },
     {
-      path: '/editprofile',
-      name: 'EditProfile',
-      component: EditProfile,
+      path: '/logout',
+      name: 'Logout',
+      component: Logout,
     },
     {
-      path: '/useremployee',
-      name: 'UserEmployee',
-      component: UserEmployee,
+      path: '/home',
+      name: 'Home',
+      component: Home,
     },
     {
-      path: '/usermanager',
-      name: 'UserManager',
-      component: UserManager,
+      path: '/Users',
+      name: 'Users',
+      component: Users,
     },
     {
-      path: '/useradministrator',
-      name: 'UserAdministrator',
-      component: UserAdministrator,
-    },
-    {
-      path: '/clocker',
-      name: 'Clocker',
-      component: Clocker,
-    },
-    {
-      path: '/workingtime',
-      name: 'WorkingTime',
-      component: WorkingTime,
+      path: '/workingtimes',
+      name: 'WorkingTimes',
+      component: WorkingTimes,
     },
     {
       path: '/calendar',
@@ -69,19 +57,25 @@ export default new Router({
       component: Calendar,
     },
     {
-      path: '/teamsmanager',
-      name: 'TeamsManager',
-      component: TeamsManager,
+      path: '/clocker',
+      name: 'Clocker',
+      component: Clocker,
     },
     {
-      path: '/usersprofilemanager',
-      name: 'UsersProfileManager',
-      component: UsersProfileManager,
+      path: '/settings',
+      name: 'Settings',
+      component: Settings,
     },
     {
-      path: '/graphmanager',
-      name: 'GraphManager',
-      component: GraphManager,
+      path: '/chartmanager',
+      name: 'ChartManager',
+      component: ChartManager,
     },
+    {
+      path: '/editprofile',
+      name: 'EditProfile',
+      component: EditProfile,
+    },
+
   ],
 });

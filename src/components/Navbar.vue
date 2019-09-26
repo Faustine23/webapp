@@ -1,16 +1,16 @@
 <template>
   <div class="main_container">
-      <nav>
-        <img class="logogc" src="../assets/avatar/logogc.png" alt="Avatar">
-        <div class="tm_title">Time Manager</div>
-        <div class="links">
-          <router-link class="items"
-                       v-for="link in links"
-                       v-bind:key="link.id"
-                       :to="`${link.page}`"
-                       style="color: whitesmoke">{{ link.label }}</router-link>
-        </div>
-      </nav>
+    <nav>
+      <img class="logogc" src="../assets/avatar/logogc.png" alt="Avatar">
+      <div class="tm_title">Time Manager</div>
+      <div class="links">
+        <router-link class="items"
+                     v-for="link in finalLinks"
+                     v-bind:key="link.id"
+                     :to="`${link.page}`"
+                     style="color: whitesmoke">{{ link.label }}</router-link>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -19,34 +19,42 @@ export default {
   name: 'Navbar',
   data() {
     return {
-      links: [
-        {
-          id: 0,
-          label: 'Home',
-          page: '/UserEmployee',
-        },
-        {
-          id: 1,
-          label: 'Clocker',
-          page: '/Clocker',
-        },
-        {
-          id: 2,
-          label: 'Workingtime',
-          page: '/Workingtime',
-        },
-        {
-          id: 3,
-          label: 'Calendar',
-          page: '/Calendar',
-        },
-        {
-          id: 4,
-          label: 'Graphs',
-          page: '/GraphManager',
-        },
-      ],
+      user: null,
+      links: [],
     };
+  },
+  created() {
+    if (localStorage.user) {
+      this.user = JSON.parse(localStorage.user);
+      let homepage = '';
+      switch (this.user.id_role) {
+        case 1:
+          homepage = '/HomeAdmin';
+          break;
+        case 2:
+          homepage = '/HomeManager';
+          break;
+        case 3:
+          homepage = '/HomeEmployee';
+          break;
+        default:
+          this.links = [];
+      }
+      this.links = [
+        { id: 0, label: 'Home', page: homepage },
+        { id: 1, label: 'Clocker', page: '/Clocker' },
+        { id: 2, label: 'Workingtimes', page: '/Workingtimes' },
+        { id: 4, label: 'Settings', page: '/Settings' },
+        { id: 5, label: 'Logout', page: '/Logout' },
+      ];
+    } else {
+      this.links = [];
+    }
+  },
+  computed: {
+    finalLinks() {
+      return this.links;
+    },
   },
 };
 </script>
@@ -54,23 +62,22 @@ export default {
   .main_container {
     background-color: gray;
     color: whitesmoke;
-    height: 60px;
+    height: 118px;
   }
   .logogc {
     position: fixed;
-    left: 20px;
-    padding-top: 10px;
+    left: 50px;
 
   }
   .tm_title {
-    font-size: 10px;
-    padding-top: 10px;
+    font-size: 30px;
+    padding-top: 30px;
   }
   .links {
-    padding-top: 5px;
+    padding-top: 40px;
   }
   .items {
-    font-size: 8px;
-    padding: 20px;
+    font-size: 18px;
+    padding: 50px;
   }
 </style>
