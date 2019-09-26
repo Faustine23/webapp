@@ -10,7 +10,7 @@
 
             <!-- Panel search or create team -->
             <div class="md-layout md-alignment-center">
-              <md-card class="md-layout-item md-size-80"
+              <md-card class="md-layout-item md-size-90"
                        style="background-color: #e9ecef">
                 <md-card-header>
                   <h1>Search or Create teams</h1>
@@ -27,26 +27,31 @@
                     </md-field>
                   </div>
                 </md-card-content>
-                <md-card-actions>
-                  <md-button class="md-raised md-primary"
-                             style="margin: auto"
-                             v-on:click="$store.commit('searchTeams')"
-                             :disabled="$store.state.disSearchTeam">Search</md-button>
-                  <md-button class="md-raised md-primary"
-                             style="margin: auto"
-                             v-on:click="$store.commit('createTeams')"
-                             :disabled="$store.state.disCreateTeam">Create</md-button>
-                </md-card-actions>
+
+                <div class="form_buttons_area">
+                  <button class="form_button"
+                          @click="doSearch">
+                     <img src="../assets/icon/search.png"
+                          class="form_button_image" />
+                     SEARCH
+                  </button>
+                  <button class="form_button"
+                          @click="doCreate">
+                     <img src="../assets/icon/create.png"
+                          class="form_button_image" />
+                     CREATE
+                  </button>
+                </div>
                 <br>
-                <md-card-action>
-                  <md-button class="md-icon-button"
-                             style="margin: auto"
-                             v-on:click="$store.commit('refershTeams')">
-                    <img src="../assets/icon/refresh-1.png"/>
-                  </md-button>
-                  <br>
-                  <br>
-                </md-card-action>
+                <div class="form_buttons_area">
+                  <button class="form_button"
+                          @click="doRefresh">
+                     <img src="../assets/icon/refresh-2.png"
+                          class="form_button_image" />
+                     REFRESH
+                  </button>
+                </div>
+
               </md-card>
             </div>
             <br>
@@ -54,7 +59,7 @@
 
               <!-- Create teams -->
               <div class="md-layout md-layout-item md-alignment-center">
-                <md-card-content class="md-layout-item md-size-80"
+                <md-card-content class="md-layout-item md-size-90"
                                  style="background-color: #e9ecef"
                                  v-if="$store.state.createteams">
                   <md-card-header>
@@ -177,7 +182,7 @@
 
               <!-- Search Team  -->
               <div class="md-layout md-layout-item md-alignment-center">
-                <md-card-content class="md-layout-item md-size-80"
+                <md-card-content class="md-layout-item md-size-90"
                                  style="background-color: #e9ecef"
                                  v-if="$store.state.searchteams">
                   <md-card-header>
@@ -293,6 +298,7 @@
 
 
 <script>
+import router from '../router';
 
 export default {
   name: 'TeamsManager',
@@ -301,11 +307,29 @@ export default {
     return {
       teams: 'GothamProtector',
 
-      form: {
-        teamsname: '',
-      },
+      searchteams: null,
+      createteams: null,
+      disSearchTeam: false,
+      disCreateTeam: false,
 
     };
+  },
+
+  methods: {
+     doSearch() {
+        searchteams = true;
+        disCreateTeam = true;
+     },
+     doCreate() {
+        createteams = true;
+        disSearchTeam = true;
+     },
+     doRefresh() {
+        searchteams = null;
+        createteams = null;
+        disSearchTeam = false;
+        disCreateTeam = false;
+     },
   },
 };
 </script>
@@ -317,5 +341,24 @@ export default {
 
   #team {
     margin-top: 50px;
+  }
+
+  .form_button_image {
+     width: 35px!important;
+     height: 35px!important;
+  }
+  .form_button {
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-bottom: 5px;
+     padding-top: 5px;
+     border: 1px solid blue;
+     border-radius: 5px;
+     background-color: #00B7FF;
+     color: azure!important;
+     margin: 20px;
+  }
+  .form_buttons_area {
+     display: inline-block;
   }
 </style>

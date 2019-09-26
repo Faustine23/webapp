@@ -9,8 +9,6 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import moment from 'moment';
 import VueMoment from 'vue-moment';
-import VueCal from 'vue-cal';
-import 'vue-cal/dist/vuecal.css';
 import ClockPlugin from 'vue-reactive-clock';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
@@ -41,6 +39,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App, VueCal },
+  components: { App },
   template: '<App/>',
 });

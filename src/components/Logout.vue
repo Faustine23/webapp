@@ -31,7 +31,7 @@ export default {
     setTimeout(() => {
       localStorage.clear();
       router.push('/login');
-    });
+    }, 2000);
   },
 };
 </script>

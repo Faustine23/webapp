@@ -5,7 +5,7 @@
       <div class="tm_title">Time Manager</div>
       <div class="links">
         <router-link class="items"
-                     v-for="link in finalLinks"
+                     v-for="link in links"
                      v-bind:key="link.id"
                      :to="`${link.page}`"
                      style="color: whitesmoke">{{ link.label }}</router-link>
@@ -20,10 +20,36 @@ export default {
   data() {
     return {
       user: null,
-      links: [],
+       links: [
+          {
+            id: 0,
+            label: 'Home',
+            page: '/HomeEmployee',
+          },
+          {
+            id: 1,
+            label: 'Clocker',
+            page: '/Clocker',
+          },
+          {
+            id: 2,
+            label: 'Workingtimes',
+            page: '/WorkingTimes',
+          },
+          {
+            id: 3,
+            label: 'Calendar',
+            page: '/Calendar',
+          },
+          {
+            id: 4,
+            label: 'Graph',
+            page: '/GraphManager',
+          },
+       ],
     };
   },
-  created() {
+ /* created() {
     if (localStorage.user) {
       this.user = JSON.parse(localStorage.user);
       let homepage = '';
@@ -50,34 +76,30 @@ export default {
     } else {
       this.links = [];
     }
-  },
-  computed: {
-    finalLinks() {
-      return this.links;
-    },
-  },
+  }, */
 };
 </script>
 <style>
   .main_container {
     background-color: gray;
     color: whitesmoke;
-    height: 118px;
+    height: 60px;
   }
   .logogc {
     position: fixed;
-    left: 50px;
+    left: 20px;
+    padding-top: 10px;;
 
   }
   .tm_title {
-    font-size: 30px;
-    padding-top: 30px;
+    font-size: 10px;
+    padding-top: 10px;
   }
   .links {
-    padding-top: 40px;
+    padding-top: 5px;
   }
   .items {
-    font-size: 18px;
-    padding: 50px;
+    font-size: 8px;
+    padding: 20px;
   }
 </style>

@@ -1,17 +1,19 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Users from '../components/Users';
-import WorkingTimes from '../components/WorkingTimes';
-import Calendar from '../components/Calendar';
 import Signup from '../components/Signup';
 import Login from '../components/Login';
-import Clocker from '../components/Clocker';
 import Logout from '../components/Logout';
-import Settings from '../components/Settings';
-import ChartManager from '../components/ChartManager';
-import EditProfile from '../components/EditProfile';
 import Home from '../components/Home';
-
+import HomeEmployee from '../components/HomeEmployee';
+import HomeAdmin from '../components/HomeAdmin';
+import HomeManager from '../components/HomeManager';
+import GraphManager from '../components/GraphManager';
+import EditProfile from '../components/EditProfile';
+import WorkingTimes from '../components/WorkingTimes';
+import Calendar from '../components/Calendar';
+import Clocker from '../components/Clocker';
+import UsersManager from '../components/UsersManager';
+import TeamsManager from '../components/TeamsManager';
 
 Vue.use(Router);
 
@@ -42,9 +44,19 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/Users',
-      name: 'Users',
-      component: Users,
+      path: '/homeemployee',
+      name: 'HomeEmployee',
+      component: HomeEmployee,
+    },
+    {
+      path: '/homeadmin',
+      name: 'HomeAdmin',
+      component: HomeAdmin,
+    },
+    {
+      path: '/homemanager',
+      name: 'HomeManager',
+      component: HomeManager,
     },
     {
       path: '/workingtimes',
@@ -62,20 +74,24 @@ export default new Router({
       component: Clocker,
     },
     {
-      path: '/settings',
-      name: 'Settings',
-      component: Settings,
-    },
-    {
-      path: '/chartmanager',
-      name: 'ChartManager',
-      component: ChartManager,
+      path: '/graphmanager',
+      name: 'GraphManager',
+      component: GraphManager,
     },
     {
       path: '/editprofile',
       name: 'EditProfile',
       component: EditProfile,
     },
-
+    {
+      path: '/usersmanager',
+      name: 'UsersManager',
+      component: UsersManager,
+    },
+    {
+      path: '/teamsmanager',
+      name: 'TeamsManager',
+      component: TeamsManager,
+    },
   ],
 });

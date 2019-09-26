@@ -23,14 +23,22 @@
                 </md-field>
                 <br>
               </md-card-content>
-              <md-card-actions>
-                <md-button class="md-icon-button"
-                           style="margin: auto"
-                           v-on:click=""><img src="../assets/icon/save.png"/></md-button>
-                <md-button class="md-icon-button"
-                           style="margin: auto"
-                           v-on:click="$store.commit('seeAppointement')"><img src="../assets/icon/see.png"/></md-button>
-              </md-card-actions>
+
+              <div class="form_buttons_area">
+                  <button class="form_button"
+                          @click="doSee">
+                     <img src="../assets/icon/see.png"
+                          class="form_button_image" />
+                     SEE
+                  </button>
+                  <button class="form_button"
+                          @click="doSave">
+                     <img src="../assets/icon/save.png"
+                          class="form_button_image" />
+                     SAVE
+                  </button>
+              </div>
+
             </md-card>
           </div>
           <br>
@@ -77,6 +85,25 @@ export default {
 <style>
   #datepicker{
     margin-top: 50px;
+  }
+
+  .form_button_image {
+     width: 35px!important;
+     height: 35px!important;
+  }
+  .form_button {
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-bottom: 5px;
+     padding-top: 5px;
+     border: 1px solid blue;
+     border-radius: 5px;
+     background-color: #00B7FF;
+     color: azure!important;
+     margin: 20px;
+  }
+  .form_buttons_area {
+     display: inline-block;
   }
 
 </style>

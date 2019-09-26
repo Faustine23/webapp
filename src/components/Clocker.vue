@@ -93,6 +93,7 @@ export default {
         this.currentActiveTime = userActiveTime;
         console.log('>>>> this.currentActiveTime = ', this.currentActiveTime);
         this.onDutyMsg = `Last clock event: ${userActiveTime}`;
+        // eslint-disable-next-line no-return-assign
       }).catch(error => this.onDutyMsg = error);
     },
   },

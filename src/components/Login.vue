@@ -5,7 +5,7 @@
         <!-- form for login - give email and password -->
         <div id="from">
           <div class="md-layout md-alignment-center">
-            <md-card class="md-layout-item md-size-80"
+            <md-card class="md-layout-item md-size-90"
                      style="background-color: #e9ecef">
               <md-card-header>
                 <h1>Login</h1>
@@ -29,8 +29,14 @@
               </md-card-content>
 
               <div class="form_buttons_area">
-                <button class="form_button" @click="doLogin"><img src="../assets/icon/login.png" class="form_button_image" />LOGIN</button>
-                <button class="form_button" @click="doSignup"><img src="../assets/icon/sign-up.png" class="form_button_image" />SIGNUP</button>
+                <button class="form_button"
+                        @click="doLogin">
+                     <img src="../assets/icon/login.png"
+                          class="form_button_image" />LOGIN</button>
+                <button class="form_button"
+                        @click="doSignup">
+                     <img src="../assets/icon/sign-up.png"
+                           class="form_button_image" />SIGNUP</button>
               </div>
             </md-card>
           </div>

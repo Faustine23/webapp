@@ -7,8 +7,9 @@
 
         <!-- Profil of employee-->
         <div id="profil">
-          <div class="md-layout md-alignment-left">
-           <md-card class="md-layout-item md-size-30 md-small-size-100" style="background-color: #e9ecef">
+          <div class="md-layout md-alignment-center">
+           <md-card class="md-layout-item md-size-90"
+                    style="background-color: #e9ecef">
           <md-card-header>
             <h2>{{ role }}</h2>
           </md-card-header>
@@ -22,42 +23,45 @@
              <br>
              <h1>Last Name: {{ lastname }} </h1>
              <br>
-             <h1>Email: {{ email }} </h1>
+             <h1>Email:
+             <br>{{ email }} </h1>
              <br>
              <br>
-             <md-card-actions>
-               <md-button class="md-icon-button"
-                          style="margin: auto"
-                          v-on:click="">
-                 <router-link style="color: #FFFF;"
-                              :to="{ path: '/EditProfile'}"><img src="../assets/icon/edit-2.png"/>
-                 </router-link>
-               </md-button>
-               <md-button class="md-icon-button"
-                          style="margin: auto"
-                          v-on:click="">
-                 <router-link style="color: #FFFF;"
-                              :to="{ path: '/Logout'}"><img src="../assets/icon/logout-1.png"/>
-                 </router-link>
-               </md-button>
-             </md-card-actions>
+             <div class="form_buttons_area">
+                <button class="form_button"
+                        @click="doEdit">
+                  <img src="../assets/icon/edit-2.png"
+                       class="form_button_image" />
+                  EDIT
+                 </button>
+                 <button class="form_button"
+                         @click="doLogout">
+                   <img src="../assets/icon/logout-2.png"
+                        class="form_button_image" />
+                   LOGOUT
+                 </button>
+             </div>
              <br>
              <br>
            </md-card>
+          </div>
+          <br>
+          <br>
 
             <!-- welcome message display -->
             <div class="md-layout md-alignment-center">
-              <md-card class="md-layout-item md-size-60 md-small-size-100" style="background-color: #e9ecef">
+              <md-card class="md-layout-item md-size-90"
+                       style="background-color: #e9ecef">
                 <md-card-header>
                   <h2>Welcom Back {{ firstname }}</h2>
                   <br>
                   <br>
-                  <h2>{{ new Date() | moment('Do MMMM YYYY - h:mm a')}}</h2>
+                  <h2>Date: {{ currentDateTime | moment('MMMM Do, YYYY') }}</h2>
+                  <h2>Hours: {{ currentDateTime | moment('hh:mm:ss a') }}</h2>
                 </md-card-header>
               </md-card>
             </div>
           </div>
-        </div>
    </md-app-content>
   </md-app>
   </div>
@@ -65,18 +69,34 @@
 
 
 <script>
+import clockerService from '../services/ClockerService';
+import router from '../router';
 
 export default {
-  name: 'Users',
+  name: 'HomeEmployee',
 
   data() {
     return {
+      currentDateTime: Date.now(),
+      currentActiveTime: Date.now(),
+      timeOnStart: Date.now(),
+      timeOnStop: Date.now(),
+
       firstname: 'Bruce',
       lastname: 'Wayne',
       email: 'bwayne@gotham.com',
       role: 'Employee',
     };
   },
+
+  methods: {
+      doLogout() {
+        router.push('/logout');
+      },
+      doEdit() {
+        router.push('/editprofile');
+      },
+   },
 };
 </script>
 
@@ -87,6 +107,25 @@ export default {
   }
 
   #profil {
-    margin-top: 120px;
+    margin-top: 50px;
   }
+
+  .form_button_image {
+     width: 35px!important;
+     height: 35px!important;
+   }
+   .form_button {
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-bottom: 5px;
+     padding-top: 5px;
+     border: 1px solid blue;
+     border-radius: 5px;
+     background-color: #00B7FF;
+     color: azure!important;
+     margin: 20px;
+   }
+   .form_buttons_area {
+     display: inline-block;
+   }
 </style>
